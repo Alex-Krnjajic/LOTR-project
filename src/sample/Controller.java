@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,14 +64,14 @@ public class Controller {
         }
     }
 
-    public void pushButton() throws IOException {
+    public void pushButton() throws IOException, ParseException {
         HTTP.sendGET("movie");
         String text = HTTP.resultArray[0][1];
         System.out.println(text);
         text1.setText(text);
     }
 
-    public void pushButton2() throws IOException {
+    public void pushButton2() throws IOException, ParseException {
         initiateGUI();
         String query = textfield1.getText();
         String stringindex = textfield2.getText();

@@ -1,8 +1,11 @@
 package sample;
 
+import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,8 +30,10 @@ public class HTTP {
 
     public static JSONArray docs;
 
+    public static Object file;
 
-    public static void parseJSON(Object file) {
+
+    public static void parseJSON() {
         // In java JSONObject is used to create JSON object
         JSONObject json = (JSONObject) file;
 
@@ -74,7 +79,12 @@ public class HTTP {
     }
 
 
-    public static void sendGET(String url) throws IOException {
+    public static void sendGET(String url) throws IOException, ParseException {
+
+        Gson gson = new Gson();
+
+        JSONParser parser = new JSONParser();
+
         URL obj = new URL("https://the-one-api.dev/v2/"+url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
@@ -94,9 +104,15 @@ public class HTTP {
 
             // print result
             output = response.toString();
-            Object file = JSONValue.parse(output);
 
-            parseJSON(file);
+            Object gsonResult = gson.fromJson(output,Object.class);
+
+            System.out.println(gsonResult);
+
+
+            file = parser.parse(output);
+
+            parseJSON();
 
         } else {
             System.out.println("GET request not worked");

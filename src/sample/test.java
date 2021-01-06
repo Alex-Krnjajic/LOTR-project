@@ -1,13 +1,23 @@
 package sample;
 
+import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class test {
 
+
     Controller con = new Controller();
+
+    @org.junit.jupiter.api.BeforeEach
+    void setUp() throws IOException, ParseException {
+        HTTP.sendGET("movie");
+    }
 
     @Test
     void checkTextArray(){
@@ -37,6 +47,14 @@ public class test {
         String[] test = teststring.split("[:,{}]");
         assertEquals("\"budgetInMillions\"",test[1]);
 
+    }
+
+    @Test
+    void testJSON(){
+        JSONArray array = (JSONArray) HTTP.file;
+        array.forEach(item ->{
+            System.out.println(item);
+        });
     }
 
 }
