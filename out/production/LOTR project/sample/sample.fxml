@@ -21,7 +21,7 @@
    </columnConstraints>
    <children>
       <Text fx:id="text1" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="310.87744140625" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <Button fx:id="button1" mnemonicParsing="false" onAction="#pushButton" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button fx:id="button1" mnemonicParsing="false" onAction="#pushButton" text="Next page" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <TextField fx:id="textfield1" promptText="query" GridPane.columnIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="40.0" />
@@ -51,7 +51,7 @@
             <Insets top="75.0" />
          </GridPane.margin>
       </Text>
-      <Button fx:id="button2" mnemonicParsing="false" onAction="#pushButton2" text="Button" GridPane.columnIndex="2" />
+      <Button fx:id="button2" mnemonicParsing="false" onAction="#pushButton2" text="Search" GridPane.columnIndex="2" />
       <Text fx:id="text7" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="90.0" />

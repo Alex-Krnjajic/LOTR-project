@@ -7,6 +7,7 @@ import javafx.scene.text.Text;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.net.http.HttpHeaders;
 import java.util.ArrayList;
 
 public class Controller {
@@ -34,6 +35,10 @@ public class Controller {
 
     public static ArrayList<Text> textList = new ArrayList<Text>();
     public Object[] textArray = {text1,text2,text3,text4,text5,text6,text7,text8,text9};
+    public static int nameIndex;
+    public static String stringindex;
+    public static String query;
+    public static int pageIndex;
 
 
     Text x = text1;
@@ -64,32 +69,29 @@ public class Controller {
         }
     }
 
-    public void pushButton() throws IOException, ParseException {
-        HTTP.sendGET("movie");
-        String text = HTTP.resultArray[0][1];
-        System.out.println(text);
-        text1.setText(text);
-    }
-
-    public void pushButton2() throws IOException, ParseException {
-        initiateGUI();
-        String query = textfield1.getText();
-        String stringindex = textfield2.getText();
-        System.out.println(query);
-        System.out.println(stringindex);
-
+    public void display() throws IOException, ParseException {
         if(stringindex.equals("")) {
             System.out.println("empty index");
             HTTP.index = -1;
             HTTP.sendGET(query);
-            for (int i = 0; i <= textList.size(); i++) {
-                if (i < HTTP.resultArray.length) {
-                    String t1 = HTTP.resultArray[0][1];
-                    String t2 = HTTP.resultArray[0][2];
-                    System.out.println(t1 + " " + t2);
-                    x = textList.get(i);
-                    x.setText(t1 + " " + t2);
+            for (int i=0; i<HTTP.resultArray[0].length;i++){
+                System.out.println("for loop"+i);
+                System.out.println(HTTP.resultArray[0][i]);
+                if(HTTP.resultArray[0][i].equals("\"name\"")){
+                    nameIndex = i;
+                    System.out.println(nameIndex);
+                    break;
                 }
+
+            }
+            for (int i = 0; i < textList.size() && i < HTTP.resultArray[0].length && i < HTTP.docs.size(); i++) {
+                String in = Integer.toString(i);
+                String t1 = HTTP.resultArray[i+pageIndex][nameIndex];
+                String t2 = HTTP.resultArray[i+pageIndex][nameIndex+1];
+                System.out.println(in+":"+ t1 + " " + t2);
+                x = textList.get(i);
+                x.setText(t1 + " " + t2);
+
 
             }
         }
@@ -97,9 +99,10 @@ public class Controller {
             HTTP.index = Integer.parseInt(stringindex);
             HTTP.sendGET(query);
             for(int i = 0; i <= textList.size(); i++){
-                if(i < HTTP.resultArray.length){
-                    String t1 = HTTP.resultArray[HTTP.index][(i * 2) + 1];
-                    String t2 = HTTP.resultArray[HTTP.index][(i * 2) + 2];
+                if((i*2)+1 < HTTP.resultArray[HTTP.index].length){
+
+                    String t1 = HTTP.resultArray[HTTP.index][((i+pageIndex) * 2) + 1];
+                    String t2 = HTTP.resultArray[HTTP.index][((i+pageIndex) * 2) + 2];
                     System.out.println(t1+" "+t2);
                     x = textList.get(i);
                     x.setText(t1+" "+t2);
@@ -108,10 +111,21 @@ public class Controller {
 
         }
 
+    }
 
+    public void pushButton() throws IOException, ParseException {
+        pageIndex+=9;
+        display();
+    }
 
-
-
+    public void pushButton2() throws IOException, ParseException {
+        initiateGUI();
+        pageIndex=0;
+        query = textfield1.getText();
+        stringindex = textfield2.getText();
+        System.out.println(query);
+        System.out.println(stringindex);
+        display();
     }
 
 }

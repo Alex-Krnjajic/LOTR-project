@@ -40,6 +40,7 @@ public class HTTP {
 
         System.out.println(json);
         docs = (JSONArray) json.get("docs");
+        resultArray = new String[docs.size()][1000];
         System.out.println(docs);
 
         if (index <= -1){
@@ -49,32 +50,17 @@ public class HTTP {
                 String objString = o.toString();
                 String[] result = objString.split("[:,{}]");
                 System.out.println("result :"+Arrays.toString(result));
-                String[][] resultArray = new String[docs.size()][result.length];
-                for(int j = 0; j< result.length; j++){
-                    resultArray[i][j] = result[j];
-                }
-                //resultArray[i] = result;
+                resultArray[i] = result;
                 System.out.println(Arrays.toString(resultArray[i]));
-
-
-                HTTP.resultArray = resultArray;
-                //System.out.println(Arrays.toString(HTTP.resultArray[i]));
-                if(i>0) {
-                    System.out.println(Arrays.toString(resultArray[i-1]));
-                    //System.out.println(Arrays.toString(HTTP.resultArray[i-1]));
-                }
             }
-            System.out.println(Arrays.toString(HTTP.resultArray[0]));
+            System.out.println(Arrays.toString(resultArray[0]));
         }
         else {
             JSONObject o = (JSONObject) docs.get(index);
             String objString = o.toString();
             String[] result = objString.split("[:,{}]");
             System.out.println("result :"+result);
-            String[][] resultArray = new String[docs.size()][result.length];
             resultArray[index] = result;
-
-            HTTP.resultArray = resultArray;
         }
     }
 
