@@ -40,7 +40,7 @@ public class HTTP {
 
         System.out.println(json);
         docs = (JSONArray) json.get("docs");
-        resultArray = new String[docs.size()][1000];
+        resultArray = new String[docs.size()][50];
         System.out.println(docs);
 
         if (index <= -1){
@@ -48,17 +48,17 @@ public class HTTP {
             for (int i = 0; i < docs.size(); i++) {
                 JSONObject o = (JSONObject) docs.get(i);
                 String objString = o.toString();
+                System.out.println(objString);
                 String[] result = objString.split("[:,{}]");
-                System.out.println("result :"+Arrays.toString(result));
                 resultArray[i] = result;
                 System.out.println(Arrays.toString(resultArray[i]));
             }
-            System.out.println(Arrays.toString(resultArray[0]));
+
         }
         else {
             JSONObject o = (JSONObject) docs.get(index);
             String objString = o.toString();
-            String[] result = objString.split("[:,{}]");
+            String[] result = objString.split("(?!\\B\"[^\"]*)[:=,{}](?![^\"]*\"\\B)");
             System.out.println("result :"+result);
             resultArray[index] = result;
         }

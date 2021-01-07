@@ -77,7 +77,7 @@ public class Controller {
             for (int i=0; i<HTTP.resultArray[0].length;i++){
                 System.out.println("for loop"+i);
                 System.out.println(HTTP.resultArray[0][i]);
-                if(HTTP.resultArray[0][i].equals("\"name\"")){
+                if(HTTP.resultArray[0][i].equals("\"name\"") || HTTP.resultArray[0][i].equals("\"dialog\"")){
                     nameIndex = i;
                     System.out.println(nameIndex);
                     break;

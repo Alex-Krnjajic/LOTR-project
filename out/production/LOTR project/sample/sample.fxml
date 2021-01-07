@@ -8,61 +8,61 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="534.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="928.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <rowConstraints>
       <RowConstraints maxHeight="124.0" minHeight="10.0" prefHeight="65.0" vgrow="ALWAYS" />
       <RowConstraints maxHeight="201.0" minHeight="0.0" prefHeight="189.0" vgrow="ALWAYS" />
       <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="70.0" vgrow="ALWAYS" />
    </rowConstraints>
    <columnConstraints>
-      <ColumnConstraints hgrow="ALWAYS" maxWidth="248.0" minWidth="10.0" prefWidth="97.0" />
-      <ColumnConstraints hgrow="ALWAYS" maxWidth="387.0" minWidth="0.0" prefWidth="322.0" />
-      <ColumnConstraints hgrow="ALWAYS" maxWidth="460.0" minWidth="10.0" prefWidth="105.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="248.0" minWidth="10.0" prefWidth="166.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="750.0" minWidth="0.0" prefWidth="622.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="460.0" minWidth="10.0" prefWidth="108.0" />
    </columnConstraints>
    <children>
-      <Text fx:id="text1" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="310.87744140625" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <Text fx:id="text1" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="624.87744140625" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
       <Button fx:id="button1" mnemonicParsing="false" onAction="#pushButton" text="Next page" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <TextField fx:id="textfield1" promptText="query" GridPane.columnIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="40.0" />
          </GridPane.margin></TextField>
-      <Text fx:id="text2" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="315.7294921875" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text2" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="626.7294921875" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="15.0" />
          </GridPane.margin>
       </Text>
-      <Text fx:id="text3" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="628.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="30.0" />
          </GridPane.margin>
       </Text>
-      <Text fx:id="text4" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text4" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="629.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="45.0" />
          </GridPane.margin>
       </Text>
-      <Text fx:id="text5" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text5" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="629.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="60.0" />
          </GridPane.margin>
       </Text>
-      <Text fx:id="text6" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text6" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="624.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="75.0" />
          </GridPane.margin>
       </Text>
       <Button fx:id="button2" mnemonicParsing="false" onAction="#pushButton2" text="Search" GridPane.columnIndex="2" />
-      <Text fx:id="text7" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text7" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="624.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="90.0" />
          </GridPane.margin>
       </Text>
-      <Text fx:id="text8" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text8" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="627.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="105.0" />
          </GridPane.margin>
       </Text>
-      <Text fx:id="text9" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="text9" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="625.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="120.0" />
          </GridPane.margin>

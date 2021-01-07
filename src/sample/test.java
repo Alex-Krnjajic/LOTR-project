@@ -16,7 +16,7 @@ public class test {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() throws IOException, ParseException {
-        HTTP.sendGET("movie");
+        HTTP.sendGET("character");
     }
 
     @Test
@@ -51,10 +51,18 @@ public class test {
 
     @Test
     void testJSON(){
-        JSONArray array = (JSONArray) HTTP.file;
-        array.forEach(item ->{
-            System.out.println(item);
-        });
+        for(int i= 0; i<HTTP.resultArray.length;i++){
+            for (int j=0; j < HTTP.resultArray[i].length;j++){
+                if(HTTP.resultArray[0][j].equals("\"name\"")){
+                    if(j!=7){
+                        System.out.println(j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j+j);
+                    }
+                    System.out.println(j);
+                    break;
+                }
+
+            }
+        }
     }
 
 }
