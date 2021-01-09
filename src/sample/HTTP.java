@@ -32,6 +32,8 @@ public class HTTP {
 
     public static Object file;
 
+    private static int responseCode;
+
 
     public static void parseJSON() {
         // In java JSONObject is used to create JSON object
@@ -65,6 +67,10 @@ public class HTTP {
     }
 
 
+    public static int getResponseCode() {
+        return responseCode;
+    }
+
     public static void sendGET(String url) throws IOException, ParseException {
 
         Gson gson = new Gson();
@@ -76,7 +82,7 @@ public class HTTP {
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
         con.setRequestProperty("Authorization", "Bearer " + AUTHENTICATION);
-        int responseCode = con.getResponseCode();
+        responseCode = con.getResponseCode();
         System.out.println("GET Response Code :: " + responseCode);
         if (responseCode == HttpURLConnection.HTTP_OK) { // success
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));

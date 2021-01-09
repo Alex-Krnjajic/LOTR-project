@@ -1,11 +1,14 @@
-package sample;
+package test;
 
 import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions.*;
+import sample.Controller;
+import sample.HTTP;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,10 +16,12 @@ public class test {
 
 
     Controller con = new Controller();
+    HTTP http = new HTTP();
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() throws IOException, ParseException {
-        HTTP.sendGET("character");
+        HTTP.sendGET("book");
+
     }
 
     @Test
@@ -63,6 +68,11 @@ public class test {
 
             }
         }
+    }
+
+    @Test
+    void checkConnection(){
+        assertEquals(HttpURLConnection.HTTP_OK,HTTP.getResponseCode());
     }
 
 }
